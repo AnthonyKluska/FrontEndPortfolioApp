@@ -1,36 +1,45 @@
 import React, { Component } from 'react';
 //import { render } from '@testing-library/react';
-import{ NavLink} from "react-router-dom";
-import { Card, CardImg, CardImgOverlay, CardTitle, Nav,} from 'reactstrap';
+import{ Link} from "react-router-dom";
+import { Card, CardImg, CardTitle, Nav, CardBody, CardFooter,} from 'reactstrap';
 
 
 class Fight extends Component{
 
+    constructor(props){
+        super(props);
+            console.log("test render");
+    }
+
     render() {
+        console.log("refresh", this.state)
         const selectbout = this.props.fightcard.map(bout => {
             const redCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.redCorner)[0];
             const blueCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.blueCorner)[0];
             return (
                 <div key={bout.id} className="col">
                     <div className= "row">  
-                        <Card className= " col-md-2" onClick={()=> this.props.viewFighter(bout.redCorner.id)}>
+                        <Card className= " col-md-2">
+                        <CardTitle>{redCorner.name}</CardTitle>
                             <Nav>
-                                <NavLink to="/fightStats">
+                                <Link to={`/fighterpage/${redCorner.id}`}>
                                     <CardImg width="10.5%" src={redCorner.pic}/>
-                                </NavLink>
+                                </Link>
                             </Nav>
                         </Card>
-                        <Card className="col-md-2" onClick={()=> this.props.viewFighter(bout.blueCorner.id)}>
+                        <Card className="col-md-2">
+                        <CardTitle> {blueCorner.name}</CardTitle>
                             <Nav>
-                                <NavLink to="/fightStats">
+                                {/* THIS PART IS CORRECT. IT REFERES TO AN ARRAY OF OBJECTS CALLED 'EXPORT CONST FIGHTER[]' AND WHEN IT IS CLICK WHAT EVER THE ID IS GETS REFERENCED IN THE FIGERPAGE.JS AFTER THE APP ROUTS TO IT IN THE MAIN COMPONENT */}
+                                <Link to={`/fighterpage/${blueCorner.id}`}>
                                     <CardImg width="10.5%" src={blueCorner.pic}/>
-                                </NavLink>
+                                </Link>
                             </Nav>
-                        </Card>
-                        <Card>
-                            <CardImgOverlay>
-                            <CardTitle>{redCorner.name} VS {blueCorner.name}</CardTitle>
-                            </CardImgOverlay>
+                            <CardFooter>
+                                <ul>
+                                    <li>bout.</li>
+                                </ul>
+                            </CardFooter>
                         </Card>
                     </div>
                 </div>
@@ -41,16 +50,15 @@ class Fight extends Component{
 
         return (
             <div className="container">
-                <div className="row">
-                {selectbout[this.props.currentBout]}
-
-                {/* <div onClick= {()=> this.props.viewFighter(this.props.fightcard[this.props.currentBout].redCorner.id)}>{redCornerImageCard[this.props.currentBout]}</div>
-                
-                <div onClick= {()=> this.props.viewFighter(this.props.fightcard[this.props.currentBout].blueCorner.id)}>{blueCornerImageCard[this.props.currentBout]}</div> */}
-                
-                {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>}
-                {this.props.currentBout >= selectbout.length - 1? <div></div>: <button onClick={()=> this.props.nextBout() }>Next</button>}
-                </div>
+                <Card>
+                    <CardBody>
+                        {selectbout[this.props.currentBout]}
+                    </CardBody>
+                    <CardFooter>
+                        {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>}
+                        {this.props.currentBout >= selectbout.length - 1? <div></div>: <button onClick={()=> this.props.nextBout() }>Next</button>}
+                    </CardFooter>
+                </Card>
             </div>
         );
         

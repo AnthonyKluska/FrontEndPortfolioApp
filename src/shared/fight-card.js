@@ -8,10 +8,10 @@ export const FIGHTCARD = [
         weightclass: "LightWeight",
         fightPosition: 5,
         winner: null,
-        method: null, 
+        method: "Knock Out", 
         time: {
             clock: null,
-            round:null
+            round: "Fifth Round"
         },
         
     },
