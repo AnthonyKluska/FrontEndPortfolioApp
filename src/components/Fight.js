@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 //import { render } from '@testing-library/react';
 import{ Link} from "react-router-dom";
-import { Card, CardImg, CardImgOverlay, CardTitle, Nav,} from 'reactstrap';
+import { Card, CardImg, CardTitle, Nav, CardBody, CardFooter,} from 'reactstrap';
 
 
 class Fight extends Component{
 
+    constructor(props){
+        super(props);
+            console.log("test render");
+    }
+
     render() {
+        console.log("refresh", this.state)
         const selectbout = this.props.fightcard.map(bout => {
             const redCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.redCorner)[0];
             const blueCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.blueCorner)[0];
@@ -14,6 +20,7 @@ class Fight extends Component{
                 <div key={bout.id} className="col">
                     <div className= "row">  
                         <Card className= " col-md-2">
+                        <CardTitle>{redCorner.name}</CardTitle>
                             <Nav>
                                 <Link to={`/fighterpage/${redCorner.id}`}>
                                     <CardImg width="10.5%" src={redCorner.pic}/>
@@ -21,16 +28,18 @@ class Fight extends Component{
                             </Nav>
                         </Card>
                         <Card className="col-md-2">
+                        <CardTitle> {blueCorner.name}</CardTitle>
                             <Nav>
+                                {/* THIS PART IS CORRECT. IT REFERES TO AN ARRAY OF OBJECTS CALLED 'EXPORT CONST FIGHTER[]' AND WHEN IT IS CLICK WHAT EVER THE ID IS GETS REFERENCED IN THE FIGERPAGE.JS AFTER THE APP ROUTS TO IT IN THE MAIN COMPONENT */}
                                 <Link to={`/fighterpage/${blueCorner.id}`}>
                                     <CardImg width="10.5%" src={blueCorner.pic}/>
                                 </Link>
                             </Nav>
-                        </Card>
-                        <Card>
-                            <CardImgOverlay>
-                            <CardTitle>{redCorner.name} VS {blueCorner.name}</CardTitle>
-                            </CardImgOverlay>
+                            <CardFooter>
+                                <ul>
+                                    <li>bout.</li>
+                                </ul>
+                            </CardFooter>
                         </Card>
                     </div>
                 </div>
@@ -41,12 +50,15 @@ class Fight extends Component{
 
         return (
             <div className="container">
-                <div className="row">
-                {selectbout[this.props.currentBout]}
-                
-                {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>}
-                {this.props.currentBout >= selectbout.length - 1? <div></div>: <button onClick={()=> this.props.nextBout() }>Next</button>}
-                </div>
+                <Card>
+                    <CardBody>
+                        {selectbout[this.props.currentBout]}
+                    </CardBody>
+                    <CardFooter>
+                        {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>}
+                        {this.props.currentBout >= selectbout.length - 1? <div></div>: <button onClick={()=> this.props.nextBout() }>Next</button>}
+                    </CardFooter>
+                </Card>
             </div>
         );
         
