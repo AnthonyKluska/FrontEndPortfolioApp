@@ -6,7 +6,7 @@ export const FIGHTER= [
         weight: 155,
         pic: 'fighterImg/0_FERGUSON_TONY_L.png',
         record:{
-            wins: {
+            wins:{
                 submission: 8,
                 koTko: 12,
                 decision: 5,
@@ -80,7 +80,7 @@ export const FIGHTER= [
                 submission: 1,
                 koTko: 7,
                 decision: 14,
-                DQ: null,
+                DQ: 0,
                 
             },
             losses: {
@@ -127,121 +127,121 @@ export const FIGHTER= [
         pic: "fighterImg/5_ROZENSTRUIK_JAIRZINHO_R.png",
         record:{
             wins: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 0,
+                koTko: 20,
+                decision: 3,
+                DQ: 0,
                 
             },
             losses: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 4,
+                koTko: 3,
+                decision: 5,
+                DQ: 0,
                 
             },
-            draws: null,
-            noContests: null,
+            draws: 0,
+            noContests: 0,
         }
     },
     {
         id: 6,
         name: "Anthony 'Showtime' Pettis",
-        country: null,
-        weight: null,
+        country: "USA",
+        weight: 155,
         pic: "fighterImg/6_PETTIS_ANTHONY_L_0.png",
         record:{
             wins: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 10,
+                koTko: 8,
+                decision: 8,
+                DQ: 0,
                 
             },
             losses: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 2,
+                koTko: 3,
+                decision: 5,
+                DQ: 0,
                 
             },
-            draws: null,
-            noContests: null,
+            draws: 0 ,
+            noContests: 0,
         }
     },
     {
         id: 7,
         name: "Donald 'Cowboy' Cerrone",
-        country: null,
-        weight: null,
+        country: "USA",
+        weight: 155,
         pic: "fighterImg/7_CERRONE_DONALD_R.png",
         record:{
             wins: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 5,
+                koTko: 15,
+                decision: 4,
+                DQ: 0,
                 
             },
             losses: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 2,
+                koTko: 6,
+                decision: 4,
+                DQ: 0,
                 
             },
-            draws: null,
-            noContests: null,
+            draws: 0,
+            noContests: 0,
         }
     },
     {
         id: 8,
         name: "Jeremy Stephens",
-        country: null,
-        weight: null,
+        country: "USA",
+        weight: 145,
         pic: "fighterImg/8_STEPHENS_JEREMY_L.png",
         record:{
             wins: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 3,
+                koTko: 8,
+                decision: 10,
+                DQ: 2,
                 
             },
             losses: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 2,
+                koTko: 5,
+                decision: 9,
+                DQ: 0,
                 
             },
-            draws: null,
-            noContests: null,
+            draws: 1,
+            noContests: 2,
         }
     },
     {
         id: 9,
         name: "Calvin Kattar",
-        country: null,
-        weight: null,
+        country: "USA",
+        weight: 145,
         pic: "fighterImg/9_KATTAR_CALVIN_R.png",
         record:{
             wins: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 3,
+                koTko: 5,
+                decision: 10,
+                DQ: 0,
                 
             },
             losses: {
-                submission: null,
-                koTko: null,
-                decision: null,
-                DQ: null,
+                submission: 0,
+                koTko: 0,
+                decision: 0,
+                DQ: 0,
                 
             },
-            draws: null,
-            noContests: null,
+            draws: 0,
+            noContests: 0,
         }
     }
 ]

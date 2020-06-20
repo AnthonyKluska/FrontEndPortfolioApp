@@ -12,7 +12,6 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div>
-          hello world
           <Main />
         </div>
       </BrowserRouter>
