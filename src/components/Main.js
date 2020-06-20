@@ -37,11 +37,9 @@ class Main extends Component {
 
         const FighterWithId = ({match}) => {
             console.log("match", match, this.props.fighterState.fighters, match.params.fighterId);
-            // I AM NOT SURE IF THIS IS CORRECT I THINK IT IS CLOSE BUT I AM NOT SURE I AM TRYIN TO GRAB THE CORRECT INDEX PASSED FROM THE FIGHT.JS COMPONENT AND THEN MAKE SURE THAT ONLY THAT INDEX GETS DISPAYED IN THE FIGHTERPAGE COMPONENT
             return (
                 <FighterPage
                     fighter={this.props.fighterState.fighters.filter(fighters => fighters.id === +match.params.fighterId)[0]}
-                    //fighterInfo={this.props.fighterState.fighters.filter((f)=>f.id===match)[0]}
                 />
                 
             );
@@ -51,7 +49,6 @@ class Main extends Component {
             <div>
                 <Switch>
                     <Route exact path='/' render={() => <Fight fightcard={this.props.fightCardState.fightCard} currentBout={this.state.currentBout} fighters={this.props.fighterState.fighters} prevBout={this.prevBout} nextBout = {this.nextBout}/>}  />
-                    {/* THIS IS WHEN I ROUT THE THE FIGTER PAGE AS TOU CAN SEE I AM PASSIN FIGHTERWITHID() INTO THAT PAGE */}
                     <Route exact path='/fighterpage' render={() => <FighterPage />} />
                     <Route path='/fighterpage/:fighterId' component={FighterWithId} />
                     <Redirect to='/' />

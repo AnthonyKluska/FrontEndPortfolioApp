@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 //import { render } from '@testing-library/react';
 import{ Link} from "react-router-dom";
-import { Card, CardImg, CardTitle, Nav, CardBody, CardFooter,Row, Col} from 'reactstrap';
-
+import { Card, CardImg, CardTitle, Nav, CardBody, CardFooter,Row, Col, Button, } from 'reactstrap';
 
 class Fight extends Component{
 
@@ -12,7 +11,6 @@ class Fight extends Component{
     }
 
     render() {
-        console.log("refresh", this.state)
         const selectbout = this.props.fightcard.map(bout => {
             const redCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.redCorner)[0];
             const blueCorner = this.props.fighters.filter((fighter)=>fighter.id===bout.blueCorner)[0];
@@ -29,19 +27,21 @@ class Fight extends Component{
                     return  null; 
                 }
             }
+            console.log("redc.pic", redCorner.pic);
             return (
+                
                 <div key={bout.id}>
                     <Card>
-                        <CardTitle>
+                        <CardTitle style={{backgroundColor: "gold"}}>
                             <h1>UFC {bout.weightclass} Bout</h1>
                             <br/>
                             <h3>{fightName(bout.fightPosition)}</h3> 
                         </CardTitle>
                     
-                        <CardBody className= "row">
-                                <Card className= ".col-sm-12 .col-md-4 .offset-md-3">
-                                <CardTitle><h3>{redCorner.name}</h3></CardTitle>
-                                <CardBody>
+                        <CardBody className= "row" >
+                                <Card className= ".col-sm-12 .col-md-3 ">
+                                <CardTitle style={{backgroundColor:"grey"}}><h3>{redCorner.name}</h3></CardTitle>
+                                <CardBody style={{backgroundColor:"black"}}> 
                                     <Nav>
                                         <Link to={`/fighterpage/${redCorner.id}`}>
                                             <CardImg width="8.5%" src={redCorner.pic}/>
@@ -50,8 +50,8 @@ class Fight extends Component{
                                 </CardBody> 
                             </Card>
                             <Card className= ".col-sm-12 .col-md-4 .offset-md-3">
-                                <CardTitle><h3>{blueCorner.name}</h3></CardTitle>
-                                <CardBody>
+                                <CardTitle style={{backgroundColor:"grey"}}><h3>{blueCorner.name}</h3></CardTitle>
+                                <CardBody style={{backgroundColor:"black"}}>
                                     <Nav>
                                         <Link to={`/fighterpage/${blueCorner.id}`}>
                                             <CardImg width="8.5%" src={blueCorner.pic}/>
@@ -60,7 +60,7 @@ class Fight extends Component{
                                 </CardBody> 
                             </Card>
                         </CardBody>
-                        <CardFooter>
+                        <CardFooter style={{backgroundColor: "gold"}}>
                             <ul>
                                 <li><h4>Winner: {winner.name}</h4></li>
                                 <li>Method: {bout.method}</li>
@@ -77,15 +77,16 @@ class Fight extends Component{
 
         return (
             <div className="container">
-                <Row>
+                <Row height="75%">
                     <Col md-12>
                         {selectbout[this.props.currentBout]}
                     </Col>
                 </Row>
                 <Row>
                     <Col mx-auto>
-                        {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>}
-                        {this.props.currentBout >= selectbout.length - 1? <div></div>: <button onClick={()=> this.props.nextBout() }>Next</button>}
+                        {/* {this.props.currentBout === 0? <div></div>: <button onClick= {()=> this.props.prevBout()}>Previous</button>} */}
+                        {this.props.currentBout === 0? <div></div>: <Button color="secondary" onClick= {()=> this.props.prevBout()}>Previous</Button>}
+                        {this.props.currentBout >= selectbout.length - 1? <div></div>: <Button color="primary" onClick={()=> this.props.nextBout() }>Next</Button>}
                     </Col>
                 </Row>
             </div>
