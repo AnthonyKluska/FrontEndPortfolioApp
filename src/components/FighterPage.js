@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardFooter, CardBody, Button, Media} from 'reactstrap';
+import { Card, CardTitle, CardFooter, CardBody, Button, CardImg} from 'reactstrap';
 import{ Link} from "react-router-dom";
 
 const ShowFighter= ({fi})=>{
@@ -13,7 +13,7 @@ const ShowFighter= ({fi})=>{
                     <h1>{fi.name}</h1>
                 </CardTitle>
                 <CardBody>
-                    <Media object data-src={fi.pic} alt="Generic placeholder image" />
+                    <CardImg width="2.00%" src={"/"+fi.pic}/>
                 </CardBody>
                 <CardFooter>
                     <ul>
