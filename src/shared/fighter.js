@@ -121,22 +121,22 @@ export const FIGHTER= [
     },
     {
         id: 5,
-        name: "Jairzinho Rozenstruik",
-        country: "Suriname",
-        weight: 260,
+        name: "Brett Linebarger",
+        country: "USA",
+        weight: 233,
         pic: "fighterImg/5_ROZENSTRUIK_JAIRZINHO_R.png",
         record:{
             wins: {
                 submission: 0,
-                koTko: 20,
-                decision: 3,
+                koTko: 1,
+                decision: 1,
                 DQ: 0,
                 
             },
             losses: {
-                submission: 4,
-                koTko: 3,
-                decision: 5,
+                submission: 1,
+                koTko: 1,
+                decision: 0,
                 DQ: 0,
                 
             },
