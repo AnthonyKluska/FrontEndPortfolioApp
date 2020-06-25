@@ -20,6 +20,7 @@ class Main extends Component {
         }
         this.prevBout = this.prevBout.bind(this);
         this.nextBout = this.nextBout.bind(this);
+        this.zeroBout = this.zeroBout.bind(this);
     }
 
     prevBout(){
@@ -32,6 +33,10 @@ class Main extends Component {
         console.log("the bout is" + currentBout); 
         this.setState({currentBout: currentBout += 1});
     }
+    zeroBout(){
+        // let {currentBout} = {...this.state};
+        this.setState({currentBout: 0});
+    }
 
     render() {
 
@@ -40,6 +45,7 @@ class Main extends Component {
             return (
                 <FighterPage
                     fighter={this.props.fighterState.fighters.filter(fighters => fighters.id === +match.params.fighterId)[0]}
+                    zeroBout = {this.zeroBout}
                 />
                 
             );
