@@ -60,7 +60,8 @@ class FighterPage extends Component{
             <div>
                 <ShowFighter fi={this.props.fighter}/>
                 <Link to="/fightCard">
-                    <Button color="primary">Return to View Fighters</Button>
+                    <Button color="secondary">Back to Fight Card</Button>
+                    <Button color="primary" onClick= {()=> this.props.zeroBout()}>Back to Begining</Button>
                 </Link>
             </div>
         )
